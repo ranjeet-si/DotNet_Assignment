@@ -22,7 +22,9 @@ namespace LibraryManegmentSystem
             for (int i = 0; i < totalBook; i++)
             {
                 booklib = new Book[totalBook];
-                Console.WriteLine("Enter the Book Title");
+                Book bk = new Book();
+                bk.Title=
+                Console.WriteLine("Enter he Book Title");
                 booklib[i].Title = Convert.ToString(Console.ReadLine());
                 Console.WriteLine("Enter the Book Author");
                 booklib[i].Author = Convert.ToString(Console.ReadLine());

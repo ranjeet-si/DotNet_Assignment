@@ -9,14 +9,14 @@ namespace LibraryManegmentSystem
     public class Book
     {
  
-            // Properties with private backing fields
+        
             private string title;
             private string author;
             private string genre;
             private int quantity;
      
 
-            // Properties with getter and setter methods
+          
             public string Title
             {
                 get { return title; }
