@@ -11,29 +11,50 @@ namespace Inheritance
         public int Id { get; set; }
         public string Name { get; set; }
         public string Department { get; set; }
-        public void DisplayStudentDetails()
+
+        protected double collegeFee { get; set; }
+        public virtual void DisplayStudentDetails()
         {
             Console.WriteLine($"Id: \t {Id}\t Name: {Name}\t Department: {Department}");
+        }
+
+        public void actualCollegeFee(double collegeFee)
+        {
+
         }
     }
 
     //Child class Student
     class DayScholar : Students { 
      public int BusRoute { get; set; }
-
-        public void DisplayStudentDetails()
+     public double busFee { get; set; }
+     
+        public  new void DisplayStudentDetails()
         {
             Console.WriteLine($"Id: \t {Id}\t Name: {Name}\t Department: {Department}\t BusRute:{BusRoute}");
+        }
+
+        public double actualCollegeFee(double collegeFee)
+        {
+            collegeFee = busFee + BusRoute;
+            return collegeFee;
         }
     }
 
     class Hostellar : Students { 
        public double HostelFee { get; set; }
+       public double RoomFees { get; set; }
+       public double messFees { get; set; }
 
-
-        public void DisplayStudentDetails()
+        public  new void DisplayStudentDetails()
         {
             Console.WriteLine($"Id: \t {Id}\t Name: {Name}\t Department: {Department}\t HostelFee:{HostelFee}");
+        }
+
+        public double actualCollegeFee(double collegeFee)
+        {
+            collegeFee = HostelFee + RoomFees+messFees;
+            return collegeFee;
         }
     }
 }
