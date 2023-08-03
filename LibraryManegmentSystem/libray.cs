@@ -1,41 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
-
-
 
 namespace LibraryManegmentSystem
 {
-    public class libray
+    public class Library
     {
-         Book[] booklib;
-         int totalBook;
+        private List<Book> books;
 
-
-        public void AddBookInLibray()
+        public Library()
         {
-            Console.WriteLine("Enter the no of Book ");
-            totalBook = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < totalBook; i++)
-            {
-                booklib = new Book[totalBook];
-                Book bk = new Book();
-                bk.Title=
-                Console.WriteLine("Enter he Book Title");
-                booklib[i].Title = Convert.ToString(Console.ReadLine());
-                Console.WriteLine("Enter the Book Author");
-                booklib[i].Author = Convert.ToString(Console.ReadLine());
-                Console.WriteLine("Enter the Book Genre");
-                booklib[i].Genre = Convert.ToString(Console.ReadLine());
-                Console.WriteLine("Enter the Book Quntity");
-                booklib[i].Quantity = Convert.ToInt32(Console.ReadLine());
-            }
-            Console.WriteLine("/n");
+            books = new List<Book>();
         }
-        
 
-   }
+        public void AddBookInLibrary()
+        {
+           Console.WriteLine("Enter the number of books to add:");
+    int totalBook = Convert.ToInt32(Console.ReadLine());
+
+    for (int i = 0; i < totalBook; i++)
+    {
+        Console.WriteLine("Enter the Book Title:");
+        string title = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Enter the Book Author:");
+        string author = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Enter the Book Genre:");
+        string genre = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Enter the Book Quantity:");
+        int quantity = Convert.ToInt32(Console.ReadLine());
+
+        Book bk = new Book(title, author, genre, quantity);
+        books.Add(bk);
+    }
+    Console.WriteLine();
+        }
+
+        public List<Book> GetBooks()
+        {
+            return books;
+        }
+
+        public Book SearchBookByTitle(string title)
+        {
+            return books.Find(book => book.title.Equals(title, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public Book SearchBookByAuthor(string author)
+        {
+            return books.Find(book => book.author.Equals(author, StringComparison.OrdinalIgnoreCase));
+        }
+    }
 }
