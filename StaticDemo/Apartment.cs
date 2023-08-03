@@ -17,8 +17,8 @@ namespace StaticDemo
 
         public Apartment(int apartmentNo, string ownerName)
         {
-            apartmentNo = apartmentNo;
-            ownerName = ownerName;
+            this.apartmentNo = apartmentNo;
+            this.ownerName = ownerName;
             ++noOfHousesBought;
         }
 

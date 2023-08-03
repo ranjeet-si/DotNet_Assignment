@@ -13,6 +13,13 @@ namespace Inheritance
         public string Department { get; set; }
 
         protected double collegeFee { get; set; }
+
+        public Students() { }
+
+        public Students(int a ) {
+            Console.WriteLine("In Parent Class Constructor");
+        }
+
         public virtual void DisplayStudentDetails()
         {
             Console.WriteLine($"Id: \t {Id}\t Name: {Name}\t Department: {Department}");
@@ -25,36 +32,41 @@ namespace Inheritance
     }
 
     //Child class Student
-    class DayScholar : Students { 
-     public int BusRoute { get; set; }
-     public double busFee { get; set; }
+    //class DayScholar : Students { 
+    // public int BusRoute { get; set; }
+    // public double busFee { get; set; }
+
+    // public DayScholar( ):base(40) {
+
+    //        Console.WriteLine("In child class Contructor");
+    //    }
      
-        public  new void DisplayStudentDetails()
-        {
-            Console.WriteLine($"Id: \t {Id}\t Name: {Name}\t Department: {Department}\t BusRute:{BusRoute}");
-        }
+    //    public  new void DisplayStudentDetails()
+    //    {
+    //        Console.WriteLine($"Id: \t {Id}\t Name: {Name}\t Department: {Department}\t BusRute:{BusRoute}");
+    //    }
 
-        public double actualCollegeFee(double collegeFee)
-        {
-            collegeFee = busFee + BusRoute;
-            return collegeFee;
-        }
-    }
+    //    public double actualCollegeFee(double collegeFee)
+    //    {
+    //        collegeFee = busFee + BusRoute;
+    //        return collegeFee;
+    //    }
+    //}
 
-    class Hostellar : Students { 
-       public double HostelFee { get; set; }
-       public double RoomFees { get; set; }
-       public double messFees { get; set; }
+    //class Hostellar : Students { 
+    //   public double HostelFee { get; set; }
+    //   public double RoomFees { get; set; }
+    //   public double messFees { get; set; }
 
-        public  new void DisplayStudentDetails()
-        {
-            Console.WriteLine($"Id: \t {Id}\t Name: {Name}\t Department: {Department}\t HostelFee:{HostelFee}");
-        }
+    //    public  new void DisplayStudentDetails()
+    //    {
+    //        Console.WriteLine($"Id: \t {Id}\t Name: {Name}\t Department: {Department}\t HostelFee:{HostelFee}");
+    //    }
 
-        public double actualCollegeFee(double collegeFee)
-        {
-            collegeFee = HostelFee + RoomFees+messFees;
-            return collegeFee;
-        }
-    }
+    //    public double actualCollegeFee(double collegeFee)
+    //    {
+    //        collegeFee = HostelFee + RoomFees+messFees;
+    //        return collegeFee;
+    //    }
+    //}
 }
